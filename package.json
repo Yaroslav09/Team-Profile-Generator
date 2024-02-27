@@ -1,0 +1,28 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "the app will togenerate a webpage that displays my team's basic info",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaroslav09/Team-Profile-Generator.git"
+  },
+  "author": "Yaroslav Bozhak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaroslav09/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Yaroslav09/Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
