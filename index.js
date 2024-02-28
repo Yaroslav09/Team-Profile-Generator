@@ -14,7 +14,9 @@ const render = require("./src/page-template.js");
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
 class ProfileGenerator {
-    constructor() {}
+    constructor() {
+        this.generatedTeam = [];
+    }
 
     managerGenerator() {        
         inquirer
@@ -45,15 +47,9 @@ class ProfileGenerator {
             ])
             .then(val => {
                 const manager = new Manager(val.employeeName, val.id, val.email, val.officeNumber);
-            })
-            // .then(val => {
-            //     // If the user says yes to another game, play again, otherwise quit the game
-            //     if (val.choice) {
-            //     this.play();
-            //     } else {
-            //     this.quit();
-            //     }
-            // });
+                this.generatedTeam.push(manager);
+                this.nextChoice();
+            })            
     }
 
     engineerGenerator() {        
@@ -85,6 +81,8 @@ class ProfileGenerator {
             ])
             .then(val => {
                 const engineer = new Engineer(val.employeeName, val.id, val.email, val.github);
+                this.generatedTeam.push(engineer);
+                this.nextChoice();
             })     
     }
 
@@ -117,12 +115,53 @@ class ProfileGenerator {
             ])
             .then(val => {
                 const intern = new Intern(val.employeeName, val.id, val.email, val.school);
+                this.generatedTeam.push(intern);
+                this.nextChoice();
             })     
+    }
+
+    nextChoice() {
+        inquirer
+            .prompt([
+                {
+                    type: "list",
+                    name: "nextChoice",
+                    message: "Please add another member or finish building the team",
+                    choices: [
+                        "Add an engineer",
+                        "Add an intern",
+                        "Finish building the team"
+                    ]
+                }
+            ])
+            .then(val => {
+                if (val.nextChoice === "Add an engineer") {
+                    this.engineerGenerator();
+                } else if (val.nextChoice === "Add an intern") {
+                    this.internGenerator();
+                } else if(val.nextChoice === "Finish building the team") {
+                    this.generateHTML();
+                } 
+            });      
+    }
+
+    generateHTML() {
+        const html = render(this.generatedTeam);
+        fs.mkdir(OUTPUT_DIR, { recursive: true }, err => {
+            if (err) {
+                console.error("Error creating output directory:", err);
+            } else {
+                fs.writeFile(outputPath, html, err => {
+                    if (err) {
+                        console.error("Error generating HTML file:", err);
+                    } else {
+                        console.log("Team HTML file generated successfully!");
+                    }
+                });
+            }
+        });
     }
 }
 
 const profileGenerator = new ProfileGenerator();
-
 profileGenerator.managerGenerator();
-// profileGenerator.engineerGenerator();
-// profileGenerator.internGenerator();
