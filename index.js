@@ -22,27 +22,51 @@ class ProfileGenerator {
         inquirer
             .prompt([
                 {
-                type: "input",
-                name: "employeeName",
-                message: "Please enter your first name"
+                    type: "input",
+                    name: "employeeName",
+                    message: "Please enter your first name",
+                    validate: (val) => {
+                        if(val === '') {
+                            return 'Please enter a valid name'
+                        }
+                        return true  
+                    }                     
                 },
 
                 {
-                    type: "number",
+                    type: "input",
                     name: "id",
-                    message: "Please enter your employee id"
+                    message: "Please enter your employee id",
+                    validate: (val) => {
+                        if(!/^\d+$/.test(val)) {
+                            return 'Please enter a valid number'
+                        }
+                        return true  
+                    }     
                 },
 
                 {
                     type: "input",
                     name: "email",
-                    message: "Please enter your email address"
+                    message: "Please enter your email address",
+                    validate: (val) => {
+                        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                            return 'Please enter a valid email';
+                        }
+                        return true;
+                    }
                 },
 
                 {
-                    type: "number",
+                    type: "input",
                     name: "officeNumber",
-                    message: "Please enter your office number"                    
+                    message: "Please enter your office number",
+                    validate: (val) => {
+                        if(!/^\d+$/.test(val)) {
+                            return 'Please enter a valid number'
+                        }
+                        return true  
+                    }                        
                 }
             ])
             .then(val => {
@@ -56,27 +80,51 @@ class ProfileGenerator {
         inquirer
             .prompt([
                 {
-                type: "input",
-                name: "employeeName",
-                message: "Please enter your first name"
+                    type: "input",
+                    name: "employeeName",
+                    message: "Please enter your first name",
+                    validate: (val) => {
+                        if(val === '') {
+                            return 'Please enter a valid name'
+                        }
+                        return true  
+                    }      
                 },
 
                 {
-                    type: "number",
+                    type: "input",
                     name: "id",
-                    message: "Please enter your employee id"
+                    message: "Please enter your employee id",
+                    validate: (val) => {
+                        if(!/^\d+$/.test(val)) {
+                            return 'Please enter a valid number'
+                        }
+                        return true  
+                    }                 
                 },
 
                 {
                     type: "input",
                     name: "email",
-                    message: "Please enter your email address"
+                    message: "Please enter your email address",
+                    validate: (val) => {
+                        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                            return 'Please enter a valid email';
+                        }
+                        return true;
+                    }
                 },
 
                 {
                     type: "input",
                     name: "github",
-                    message: "Please enter your GitHub username"                    
+                    message: "Please enter your GitHub username",
+                    validate: (val) => {
+                        if(val === '') {
+                            return 'Please enter a valid name'
+                        }
+                        return true  
+                    }                     
                 }
             ])
             .then(val => {
@@ -90,27 +138,51 @@ class ProfileGenerator {
         inquirer
             .prompt([
                 {
-                type: "input",
-                name: "name",
-                message: "Please enter your first name"
+                    type: "input",
+                    name: "name",
+                    message: "Please enter your first name",
+                    validate: (val) => {
+                        if(val === '') {
+                            return 'Please enter a valid name'
+                        }
+                        return true  
+                    }      
                 },
 
                 {
-                    type: "number",
+                    type: "input",
                     name: "id",
-                    message: "Please enter your employee id"
+                    message: "Please enter your employee id",
+                    validate: (val) => {
+                        if(!/^\d+$/.test(val)) {
+                            return 'Please enter a valid number'
+                        }
+                        return true  
+                    }                 
                 },
 
                 {
                     type: "input",
                     name: "email",
-                    message: "Please enter your email address"
+                    message: "Please enter your email address",
+                    validate: (val) => {
+                        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                            return 'Please enter a valid email';
+                        }
+                        return true;
+                    }
                 },
 
                 {
                     type: "input",
                     name: "school",
-                    message: "Please enter your school"                    
+                    message: "Please enter your school",
+                    validate: (val) => {
+                        if(val === '') {
+                            return 'Please enter a valid name'
+                        }
+                        return true  
+                    }                         
                 }
             ])
             .then(val => {
