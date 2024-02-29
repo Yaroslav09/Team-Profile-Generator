@@ -21,8 +21,11 @@ As a manager, I want to generate a webpage that displays my team's basic info so
 https://github.com/Yaroslav09/Team-Profile-Generator
 
 ## Video link
+https://youtu.be/yN2DZqs3rOk
 
 ![image](./src/img/test_pass.png)
+
+![image](./src/img/team_profile_html.png)
 
 
 ## Used resources

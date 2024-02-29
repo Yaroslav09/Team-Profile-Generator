@@ -139,7 +139,7 @@ class ProfileGenerator {
             .prompt([
                 {
                     type: "input",
-                    name: "name",
+                    name: "employeeName",
                     message: "Please enter your first name",
                     validate: (val) => {
                         if(val === '') {
